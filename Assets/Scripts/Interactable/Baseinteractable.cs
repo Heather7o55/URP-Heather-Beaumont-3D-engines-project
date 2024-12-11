@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Baseinteractable : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         if(col.CompareTag("Player"))
         {
