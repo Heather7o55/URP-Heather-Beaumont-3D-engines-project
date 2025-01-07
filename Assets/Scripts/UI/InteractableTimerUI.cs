@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class InteractableTimerUI : MonoBehaviour
 {
-    public Image doing;
-    public Image green;
-    public Image red;
+    public static Image doing;
+    public static Image green;
+    public static Image red;
     public int screenPosition;
-    float waitTime = 10.0f;
+    public float waitTime = 10.0f;
     // Start is called before the first frame update
 
 

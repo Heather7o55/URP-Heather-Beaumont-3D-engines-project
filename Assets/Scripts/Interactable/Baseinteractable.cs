@@ -9,21 +9,15 @@ public abstract class Baseinteractable : MonoBehaviour
     private void OnTriggerStay(Collider col)
     {
         if(!col.CompareTag("Player")) {return;}
-        if(Isbeinglookedat())
-        {
-            Interact();
-        }
+        if(!Isbeinglookedat()) {return;}
+        Interact();
     }
-    bool Isbeinglookedat()
+    public bool Isbeinglookedat()
     {
         Ray Cameraray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if(Physics.Raycast(Cameraray, out RaycastHit hit))
         {
-            if(hit.collider.gameObject == gameObject)
-            {
-                return true;
-            }
-            else{return false;}
+            return hit.collider.gameObject == gameObject;
         }
         else{return false;}
     }
