@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class Baseinteractable : MonoBehaviour
+public abstract class BaseInteractable : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int[] validIDs;
+    public float interactableTimer;
+    public bool timerActive;
     private void OnTriggerStay(Collider col)
     {
         if(!col.CompareTag("Player")) {return;}
         if(!Isbeinglookedat()) {return;}
-        Interact();
+        Interact(col);
     }
     public bool Isbeinglookedat()
     {
@@ -21,5 +23,5 @@ public abstract class Baseinteractable : MonoBehaviour
         }
         else{return false;}
     }
-    public abstract void Interact();
+    public abstract void Interact(Collider col);
 }
