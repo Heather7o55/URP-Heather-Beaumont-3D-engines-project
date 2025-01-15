@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class PlayerHolding : MonoBehaviour
 {
-    public int currentlyHeldItem;
+    public static Item currentlyHeldItem;
+    void Update()
+    {
+        
+    }
 }
