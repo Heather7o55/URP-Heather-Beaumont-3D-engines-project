@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class InteractableTimerUI : MonoBehaviour
 {
     public static Image doing;
@@ -10,10 +9,6 @@ public class InteractableTimerUI : MonoBehaviour
     public static Image red;
     public int screenPosition;
     public float waitTime = 10.0f;
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
     void Update()
     {
 

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor;
 using UnityEngine;
-
 public class Furnace : BaseInteractable
 {
-    
     private Item internalItem;
     void Start()
     {
@@ -16,8 +14,8 @@ public class Furnace : BaseInteractable
     public override void Interact(Collider col)
     {
         Debug.Log("Interacting");
-        if(timerActive) {return;}
-        if(!Input.GetKeyDown("Fire1")) {return;}
+        if(timerActive) return;
+        if(!Input.GetKeyDown("Fire1")) return;
         if(ValidatePlayerItem(PlayerHolding.currentlyHeldItem.ID))
         {
             // Actually cool feature, Tuples let you switch values very easily
