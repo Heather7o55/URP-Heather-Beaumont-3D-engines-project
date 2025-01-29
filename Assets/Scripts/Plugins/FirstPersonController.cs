@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using TMPro.EditorUtilities;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -119,7 +122,7 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if(!UIManager.isPaused) CameraRotation();
 		}
 
 		private void GroundedCheck()
