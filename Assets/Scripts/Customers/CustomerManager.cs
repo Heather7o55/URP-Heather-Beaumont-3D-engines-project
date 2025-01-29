@@ -16,8 +16,8 @@ public static class CustomerManager
     }
     public struct Difficulty
     {
-        public int low;
-        public int high;
+        public float low;
+        public float high;
     }
     public static Difficulty difficulty;
     public static Request[] requests;

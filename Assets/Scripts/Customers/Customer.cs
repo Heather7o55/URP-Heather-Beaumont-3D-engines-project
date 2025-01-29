@@ -14,6 +14,7 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // This is tmp, i need more complex code here i made this is the last couple of minutes of class >.>
         CustomerManager.CustomerRequest(GetRequest());
     }
     CustomerManager.Request GetRequest()
