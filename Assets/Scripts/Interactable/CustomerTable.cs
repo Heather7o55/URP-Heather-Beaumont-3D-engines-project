@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerTable : MonoBehaviour
+public class CustomerTable : BaseInteractable
 {
     // Start is called before the first frame update
-    void Start()
+    public override void Interact(Collider col)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Interacting");
     }
 }

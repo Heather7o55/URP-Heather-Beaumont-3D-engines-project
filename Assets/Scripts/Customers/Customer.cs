@@ -14,8 +14,7 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CustomerManager.Request request = GetRequest();
-        CustomerManager.CustomerRequest(request);
+        CustomerManager.CustomerRequest(GetRequest());
     }
     CustomerManager.Request GetRequest()
     {

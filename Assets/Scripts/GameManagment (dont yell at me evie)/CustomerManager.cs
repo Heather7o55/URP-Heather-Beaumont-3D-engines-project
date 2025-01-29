@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
+// I don't feel like this script is bad anymore, this is a perfectly resonable script to make.
 public static class CustomerManager
 {
+    // I declare valid items here as it makes sense to the requests for what items are valid be made here
     public static Item[] validItems;
-    // I do not want to do this, i understand it is bad practice, however this is the most feasible way to do this.
     public struct Request
     {
         public int timer;
@@ -22,7 +23,8 @@ public static class CustomerManager
     public static Request[] requests;
     public static void CustomerRequest(Request request)
     {
-        // unlike arrays .length counts like a human, so if there is nothing in the array it will return zero, this allows us to use it as a automatic plus 1 counter
+        /* unlike arrays .length counts like a human, so if there is nothing in the array it will return zero, 
+        this allows us to use it as a automatic plus 1 counter */
         requests[requests.Length] = request;
     }
 }
