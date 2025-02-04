@@ -19,9 +19,7 @@ public abstract class BaseInteractable : MonoBehaviour
     {
         Ray Cameraray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if(Physics.Raycast(Cameraray, out RaycastHit hit))
-        {
             return hit.collider.gameObject == gameObject;
-        }
         else return false;
     }
     public bool ValidatePlayerItem(int ID)
@@ -29,7 +27,7 @@ public abstract class BaseInteractable : MonoBehaviour
     {
         foreach(Item i in validIDs)    
         {
-            if(ID == i.ID) {return true;}
+            if(ID == i.ID) return true;
         } return false;
     }
     public abstract void Interact(Collider col);

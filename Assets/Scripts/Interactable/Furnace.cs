@@ -6,10 +6,6 @@ using UnityEngine;
 public class Furnace : BaseInteractable
 {
     private Item internalItem;
-    void Start()
-    {
-        
-    }
     //Interact is called every physics update, serving the same function for interactables as update does in other scripts
     public override void Interact(Collider col)
     {

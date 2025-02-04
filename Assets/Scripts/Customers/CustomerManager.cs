@@ -8,7 +8,7 @@ using UnityEngine;
 public static class CustomerManager
 {
     // I declare valid items here as it makes sense to the requests for what items are valid be made here
-    public static Item[] validItems;
+    public static List<Item> validItems;
     public struct Request
     {
         public int timer;
@@ -16,15 +16,15 @@ public static class CustomerManager
     }
     public struct Difficulty
     {
-        public float low;
-        public float high;
+        public int low;
+        public int high;
     }
     public static Difficulty difficulty;
-    public static Request[] requests;
+    public static List<Request> requests;
     public static void CustomerRequest(Request request)
     {
         /* unlike arrays .length counts like a human, so if there is nothing in the array it will return zero, 
         this allows us to use it as a automatic plus 1 counter */
-        requests[requests.Length] = request;
+        requests[requests.Count] = request;
     }
 }
