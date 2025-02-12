@@ -11,13 +11,19 @@ public class CustomerTable : BaseInteractable
     {
         Debug.Log("Interacting");
     }
-    void Update()
+    void LateUpdate()
     {
+        // We run this in LateUpdate as it makes sure that all item transfers occour before this gets called
         if(NewItem()) CheckValidItem();
     }
     private bool NewItem()
     {
-        if(oldListLength < internalItems.Count) return true;
+        // This functions means we're not wasting resources and running a nested loop everyframe
+        if(oldListLength < internalItems.Count) 
+        {
+            oldListLength = internalItems.Count;
+            return true;
+        }
         else return false;
     }
     private void CheckValidItem()
@@ -34,5 +40,4 @@ public class CustomerTable : BaseInteractable
             }
         }
     }
-    
 }

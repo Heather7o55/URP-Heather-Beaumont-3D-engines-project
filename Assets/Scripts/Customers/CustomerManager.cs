@@ -13,13 +13,8 @@ public static class CustomerManager
     {
         public int timer;
         public Item item;
+        public int requestID;
     }
-    public struct Difficulty
-    {
-        public int low;
-        public int high;
-    }
-    public static Difficulty difficulty;
     public static List<Request> requests;
     public static void CustomerRequest(Request request)
     {
