@@ -13,9 +13,12 @@ public class Customer : MonoBehaviour
         // This just runs on start as we Instantiate the customer in a separate script so it can just make a request when its started
         CustomerManager.CustomerRequest(GetRequest());
     }
-    CustomerManager.Request GetRequest()
+    /* Functions, or methods as they are called in class based languages, can have a return variable, 
+    this return variable can be a custom defined variable, in this case my custom "request" struct*/
+    private CustomerManager.Request GetRequest()
     {
         CustomerManager.Request request;
+        // I use range here to pick a random number within the valid items list, which makes sure that customers can only request an item the player can make
         request.item = CustomerManager.validItems[Random.Range(0, CustomerManager.validItems.Count)];
         request.timer = Random.Range(DifficultyController.difficulty.low, DifficultyController.difficulty.high);
         while(true)
@@ -27,8 +30,11 @@ public class Customer : MonoBehaviour
         request.requestID = ID;
         return request;
     }
-    bool IfRequestFulfilled()
+    private bool IfRequestFulfilled()
     {
+        /* For those unaware, return returns the output of the given variable, 
+        in this case since my return type is bool and the return type of that function call is also a bool i can just return the function, 
+        as it returns the output of the function */
         return !CustomerManager.requests.Any(Request => Request.requestID == ID);
     }
     void Update()
