@@ -12,13 +12,13 @@ public abstract class BaseInteractable : MonoBehaviour
         if(!col.CompareTag("Player")) return;
         // We do this because the triggers will be overlapping between interactables, this ensures the player can only interact with the one they're looking at
         if(!IsBeingLookedAt()) return;
-        // We pass the collider through as it makes extra checks on the interactbles script easier (and well possible lmao)
+        // We pass the collider through as it makes extra checks on the interactables script easier (and well possible lmao)
         Interact(col);
     }
     public bool IsBeingLookedAt()
     {
-        Ray Cameraray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        if(Physics.Raycast(Cameraray, out RaycastHit hit))
+        Ray CameraRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if(Physics.Raycast(CameraRay, out RaycastHit hit))
             return hit.collider.gameObject == gameObject;
         else return false;
     }

@@ -13,12 +13,12 @@ public class CustomerTable : BaseInteractable
     }
     void LateUpdate()
     {
-        // We run this in LateUpdate as it makes sure that all item transfers occour before this gets called
+        // We run this in LateUpdate as it makes sure that all item transfers occur before this gets called
         if(NewItem()) CheckValidItem();
     }
     private bool NewItem()
     {
-        // This functions means we're not wasting resources and running a nested loop everyframe
+        // This functions means we're not wasting resources and running a nested loop every frame
         if(oldListLength < internalItems.Count) 
         {
             oldListLength = internalItems.Count;
