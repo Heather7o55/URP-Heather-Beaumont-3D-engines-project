@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
-// I don't feel like this script is bad anymore, this is a perfectly resonable script to make.
+// I don't feel like this script is bad anymore, this is a perfectly reasonable script to make.
 public static class CustomerManager
 {
     // I declare valid items here as it makes sense to the requests for what items are valid be made here
     public static List<Item> validItems;
+    public static List<GameObject> orderUIList;
     public struct Request
     {
-        public int timer;
+        public float timer;
         public Item item;
         public int requestID;
     }

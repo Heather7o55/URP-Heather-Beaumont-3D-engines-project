@@ -8,10 +8,13 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     private int ID;
+    private GameObject orderUI;
     void Start()
     {
+        CustomerManager.Request tmpRequest = GetRequest();
         // This just runs on start as we Instantiate the customer in a separate script so it can just make a request when its started
-        CustomerManager.CustomerRequest(GetRequest());
+        CustomerManager.CustomerRequest(tmpRequest);
+        orderUI = UIManager.CreateOrderUI(tmpRequest);
     }
     /* Functions, or methods as they are called in class based languages, can have a return variable, 
     this return variable can be a custom defined variable, in this case my custom "request" struct*/
@@ -41,6 +44,10 @@ public class Customer : MonoBehaviour
     {
         /* We call this in update as running this next frame shouldn't pose any issues, 
         but running it on lateUpdate could cause it to run before CustomerTable's check making dupes possible */
-        if(IfRequestFulfilled()) Destroy(gameObject);
+        if(IfRequestFulfilled()) 
+        {
+            Destroy(orderUI);
+            Destroy(gameObject);
+        }
     }
 }

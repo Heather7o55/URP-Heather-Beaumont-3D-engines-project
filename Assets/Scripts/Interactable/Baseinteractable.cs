@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 public abstract class BaseInteractable : MonoBehaviour
@@ -25,10 +26,11 @@ public abstract class BaseInteractable : MonoBehaviour
     public bool ValidatePlayerItem(int ID)
     // We do this here as this is universally used across interactables
     {
-        foreach(Item i in validIDs)    
-        {
-            if(ID == i.ID) return true;
-        } return false;
+        return validIDs.Any(Item => Item.ID == ID);
+        // foreach(Item i in validIDs)    
+        // {
+        //     if( ID == i.ID) return true;
+        // } return false;
     }
     public abstract void Interact(Collider col);
 }

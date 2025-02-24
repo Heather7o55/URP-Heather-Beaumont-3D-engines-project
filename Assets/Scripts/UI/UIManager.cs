@@ -8,8 +8,11 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject pauseMenuQuitUI;
     public static bool isPaused = false;
+    public static GameObject prefabUI;
     void Update()
     {
+        UpdateOrderUI();
+        Time.timeScale = isPaused ? 0f : 1f;
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused) ResumeGame();
@@ -20,14 +23,12 @@ public class UIManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
         isPaused = false;
     }
     void PauseGame()
     {
         Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
         isPaused = true;
     }
     public void PauseMenuQuit()
@@ -43,5 +44,19 @@ public class UIManager : MonoBehaviour
     public void QuitToMenu()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+    public static GameObject CreateOrderUI(CustomerManager.Request request)
+    {
+        int i = CustomerManager.orderUIList.Count;
+        CustomerManager.orderUIList[i] = Instantiate(prefabUI);
+        CustomerManager.orderUIList[i].GetComponent<OrderUI>().request = request;
+        return CustomerManager.orderUIList[i];
+    }
+    private void UpdateOrderUI()
+    {
+        for(int i = 0; i < CustomerManager.orderUIList.Count; i++)
+        {
+            CustomerManager.orderUIList[i].GetComponent<RectTransform>().position = new Vector3(-550 + (100 * i), -170, 0);
+        }
     }
 }
