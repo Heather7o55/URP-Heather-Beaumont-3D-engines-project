@@ -10,6 +10,10 @@ public class OrderUI : MonoBehaviour
     public Image green;
     public Image red;
     public CustomerManager.Request request;
+    void Start()
+    {
+      GetComponent<Image>();  
+    }
     void Update()
     {
         if(green.fillAmount != 1f)
