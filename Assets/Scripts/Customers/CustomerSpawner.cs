@@ -5,9 +5,12 @@ using UnityEngine;
 public class CustomerSpawner : MonoBehaviour
 {
     public GameObject customerGObj;
-    public Transform spawnPoint;
+    void Start()
+    {
+        SpawnCustomer();
+    }
     public void SpawnCustomer()
     {
-        Instantiate(customerGObj, spawnPoint);
+        Instantiate(customerGObj, transform);
     }
 }

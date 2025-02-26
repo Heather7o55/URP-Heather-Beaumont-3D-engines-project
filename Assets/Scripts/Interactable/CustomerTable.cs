@@ -7,14 +7,21 @@ public class CustomerTable : BaseInteractable
 {
     // private int oldListLength = 0;
     private List<Item> internalItems;
+    public Item empty;
     public override void Interact(Collider col)
     {
         Debug.Log("Interacting");
+        if(Input.GetKey(KeyCode.E))
+        {
+            if(PlayerHolding.currentlyHeldItem == empty) return;
+            internalItems.Add(PlayerHolding.currentlyHeldItem);
+            PlayerHolding.currentlyHeldItem = empty;
+        }
     }
     void LateUpdate()
     {
         // We run this in LateUpdate as it makes sure that all item transfers occur before this gets called
-        CheckValidItem();
+        //CheckValidItem();
     }
     // private bool NewItem()
     // {

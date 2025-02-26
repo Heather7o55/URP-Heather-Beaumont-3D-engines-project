@@ -9,10 +9,15 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenuQuitUI;
     public static bool isPaused = false;
     public static GameObject prefabUI;
+    [SerializeField]private GameObject tmpUI;
+    void Start()
+    {
+        prefabUI = tmpUI;
+    }
     void Update()
     {
-        UpdateOrderUI();
-        Time.timeScale = isPaused ? 0f : 1f;
+        //UpdateOrderUI();
+        //Time.timeScale = isPaused ? 0f : 1f;
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused) ResumeGame();
@@ -56,7 +61,7 @@ public class UIManager : MonoBehaviour
     {
         for(int i = 0; i < CustomerManager.orderUIList.Count; i++)
         {
-            CustomerManager.orderUIList[i].GetComponent<RectTransform>().position = new Vector3(-550 + (100 * i), -170, 0);
+            CustomerManager.orderUIList[i].GetComponent<RectTransform>().position = new Vector3(-480 + (130 * i), -170, 0);
         }
     }
 }
