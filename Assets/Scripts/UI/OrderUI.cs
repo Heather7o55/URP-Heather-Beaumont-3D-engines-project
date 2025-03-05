@@ -13,7 +13,7 @@ public class OrderUI : MonoBehaviour
     public Image artwork;
     void Start()
     {
-      artwork.sprite = request.item.artwork;  
+        artwork.sprite = request.item.artwork;  
     }
     void Update()
     {

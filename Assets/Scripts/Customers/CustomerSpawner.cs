@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
@@ -11,6 +12,7 @@ public class CustomerSpawner : MonoBehaviour
     }
     public void SpawnCustomer()
     {
+        Debug.Log("spawned customer");
         Instantiate(customerGObj, transform);
     }
 }

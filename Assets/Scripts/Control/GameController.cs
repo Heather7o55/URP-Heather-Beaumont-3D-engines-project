@@ -8,12 +8,7 @@ public class GameController : MonoBehaviour
     public 
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DifficultyController.difficulty.high = 30;
+        DifficultyController.difficulty.high = 20;
     }
 }

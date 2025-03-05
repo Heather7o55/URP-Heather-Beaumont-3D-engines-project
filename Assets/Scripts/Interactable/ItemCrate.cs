@@ -19,9 +19,4 @@ public class ItemCrate : BaseInteractable
         CustomerManager.validItems.Add(item);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

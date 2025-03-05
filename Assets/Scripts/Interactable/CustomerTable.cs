@@ -6,7 +6,7 @@ using UnityEngine;
 public class CustomerTable : BaseInteractable
 {
     // private int oldListLength = 0;
-    private List<Item> internalItems;
+    private List<Item> internalItems = new List<Item>();
     public Item empty;
     public override void Interact(Collider col)
     {
@@ -21,18 +21,8 @@ public class CustomerTable : BaseInteractable
     void LateUpdate()
     {
         // We run this in LateUpdate as it makes sure that all item transfers occur before this gets called
-        //CheckValidItem();
+        CheckValidItem();
     }
-    // private bool NewItem()
-    // {
-    //     // This functions means we're not wasting resources and running a nested loop every frame
-    //     if(oldListLength < internalItems.Count) 
-    //     {
-    //         oldListLength = internalItems.Count;
-    //         return true;
-    //     }
-    //     else return false;
-    // }
     private void CheckValidItem()
     {
         for(int i = 0; i < CustomerManager.requests.Count; i++)
