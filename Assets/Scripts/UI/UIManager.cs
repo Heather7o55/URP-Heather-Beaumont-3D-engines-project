@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     }
     void Update()
     {
-        //UpdateOrderUI();
+        UpdateOrderUI();
         Time.timeScale = isPaused ? 0f : 1f;
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
     {
         for(int i = 0; i < CustomerManager.orderUIList.Count; i++)
         {
-            CustomerManager.orderUIList[i].GetComponent<RectTransform>().position = new Vector3(-480 + (130 * i), -170, 0);
+            CustomerManager.orderUIList[i].GetComponent<RectTransform>().anchoredPosition = new Vector3((240 * i) - 840, -400, 0);
         }
     }
 }

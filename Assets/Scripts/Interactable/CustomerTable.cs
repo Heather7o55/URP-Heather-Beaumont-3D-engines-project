@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class CustomerTable : BaseInteractable
 {
-    // private int oldListLength = 0;
     private List<Item> internalItems = new List<Item>();
-    public Item empty;
     public override void Interact(Collider col)
     {
         Debug.Log("Interacting");

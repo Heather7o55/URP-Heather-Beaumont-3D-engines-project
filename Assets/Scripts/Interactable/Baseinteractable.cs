@@ -5,9 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 public abstract class BaseInteractable : MonoBehaviour
 {
-    public List<Item> validIDs;
+    public List<Item> validItems;
     public float interactableTimer;
     public bool timerActive;
+    public static Item empty;
+    public static Item sludge;
     private void OnTriggerStay(Collider col)
     {
         if(!col.CompareTag("Player")) return;
@@ -23,14 +25,10 @@ public abstract class BaseInteractable : MonoBehaviour
             return hit.collider.gameObject == gameObject;
         else return false;
     }
-    public bool ValidatePlayerItem(int ID)
+    public bool ValidatePlayerItem(Item item)
     // We do this here as this is universally used across interactables
     {
-        return validIDs.Any(Item => Item.ID == ID);
-        // foreach(Item i in validIDs)    
-        // {
-        //     if( ID == i.ID) return true;
-        // } return false;
+        return validItems.Any(Item => Item == item);
     }
     public abstract void Interact(Collider col);
 }

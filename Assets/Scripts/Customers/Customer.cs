@@ -25,9 +25,7 @@ public class Customer : MonoBehaviour
         CustomerManager.Request request;
         int ID;
         // I use range here to pick a random number within the valid items list, which makes sure that customers can only request an item the player can make
-        if(CustomerManager.validItems.Count > 1)
-            request.item = CustomerManager.validItems[Random.Range(0, CustomerManager.validItems.Count)];
-        else request.item = CustomerManager.validItems[0];
+        request.item = CustomerManager.validItems[Random.Range(0, CustomerManager.validItems.Count)];
         request.timer = Random.Range(DifficultyController.difficulty.low, DifficultyController.difficulty.high);
         while(true)
         {
@@ -52,6 +50,8 @@ public class Customer : MonoBehaviour
         but running it on lateUpdate could cause it to run before CustomerTable's check making dupes possible */
         if(IfRequestFulfilled() && requestActive) 
         {
+            // we need to manually remove order UI from the list as otherwise it stays in the list. 
+            CustomerManager.orderUIList.Remove(orderUI);
             Destroy(orderUI);
             Destroy(gameObject);
         }

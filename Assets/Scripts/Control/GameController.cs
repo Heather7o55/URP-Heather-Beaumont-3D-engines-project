@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public 
-    void Start()
+    // this script is going to be used to set all the parameters in the separate controller and manager scripts
+    public Item empty;
+    public Item sludge;
+    void Awake()
     {
+        BaseInteractable.empty = empty;
+        BaseInteractable.sludge = sludge;
         DifficultyController.difficulty.high = 30;
         DifficultyController.difficulty.high = 20;
     }
