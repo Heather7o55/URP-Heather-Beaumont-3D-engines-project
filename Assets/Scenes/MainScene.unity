@@ -2175,6 +2175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063e4cc1e37680b43a94542452598323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  empty: {fileID: 11400000, guid: 1508596632d827c44a12a522ad5487af, type: 2}
 --- !u!43 &792531560
 Mesh:
   m_ObjectHideFlags: 0
@@ -5391,7 +5392,6 @@ MonoBehaviour:
   validIDs: []
   interactableTimer: 0
   timerActive: 0
-  empty: {fileID: 11400000, guid: 1508596632d827c44a12a522ad5487af, type: 2}
 --- !u!1 &2008776815
 GameObject:
   m_ObjectHideFlags: 0
