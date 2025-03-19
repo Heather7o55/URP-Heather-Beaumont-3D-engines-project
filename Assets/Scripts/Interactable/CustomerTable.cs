@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class CustomerTable : BaseInteractable
@@ -8,7 +9,6 @@ public class CustomerTable : BaseInteractable
     private List<Item> internalItems = new List<Item>();
     public override void Interact(Collider col)
     {
-        Debug.Log("Interacting");
         if(Input.GetKey(KeyCode.E))
         {
             if(PlayerHolding.currentlyHeldItem == empty) return;

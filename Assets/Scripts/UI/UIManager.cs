@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
-    public GameObject pauseMenuQuitUI;
+    [SerializeField]private GameObject pauseMenuUI;
+    [SerializeField]private GameObject pauseMenuQuitUI;
     public static bool isPaused = false;
     public static GameObject prefabUI;
     public static Transform self;
@@ -66,5 +67,9 @@ public class UIManager : MonoBehaviour
         {
             CustomerManager.orderUIList[i].GetComponent<RectTransform>().anchoredPosition = new Vector3((240 * i) - 840, -400, 0);
         }
+    }
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

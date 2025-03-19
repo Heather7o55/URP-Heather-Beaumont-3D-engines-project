@@ -13,17 +13,24 @@ public class Furnace : BaseInteractable
     }
     public override void Interact(Collider col)
     {
-        Debug.Log("Interacting");
         if(timerActive) return;
         if(Input.GetKey(KeyCode.E))
         { 
             if(PlayerHolding.currentlyHeldItem == internalItem) return;
-            (PlayerHolding.currentlyHeldItem, internalItem) = (internalItem, PlayerHolding.currentlyHeldItem);
+            if(ValidatePlayerItem(PlayerHolding.currentlyHeldItem))
+                (PlayerHolding.currentlyHeldItem, internalItem) = (internalItem, PlayerHolding.currentlyHeldItem);
+            else return;
         }
     }
     public void Update()
     {
         if(internalItem == empty || internalItem == sludge || !ValidatePlayerItem(internalItem)) return;
-        if(interactableTimer != 1) interactableTimer += 1f / internalItem.
+        if(timerActive) return;
+        else 
+        {
+            internalItem = internalItem.nextState;
+            StartCoroutine(StartTimer(interactableTimer));
+        }
     }
+
 }

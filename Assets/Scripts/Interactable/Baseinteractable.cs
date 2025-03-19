@@ -20,6 +20,7 @@ public abstract class BaseInteractable : MonoBehaviour
     }
     public bool IsBeingLookedAt()
     {
+        // This function sends a ray cast out of the centre of the players camera, and if it collides with this object (the interactable this script is attached to) it returns true.
         Ray CameraRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         if(Physics.Raycast(CameraRay, out RaycastHit hit))
             return hit.collider.gameObject == gameObject;
@@ -29,6 +30,13 @@ public abstract class BaseInteractable : MonoBehaviour
     // We do this here as this is universally used across interactables
     {
         return validItems.Any(Item => Item == item);
+    }
+    public IEnumerator StartTimer(float timer)
+    {
+        // A lof of interactables are going to need tables, hence we have the float, bool, and Enumerator in the BaseInteractable script 
+        timerActive = true;
+        yield return new WaitForSeconds(timer);
+        timerActive = false;
     }
     public abstract void Interact(Collider col);
 }
