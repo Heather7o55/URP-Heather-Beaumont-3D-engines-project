@@ -33,7 +33,7 @@ public abstract class BaseInteractable : MonoBehaviour
     }
     public IEnumerator StartTimer(float timer)
     {
-        // A lof of interactables are going to need tables, hence we have the float, bool, and Enumerator in the BaseInteractable script 
+        // A lot of interactables are going to need timers, hence we have the float, bool, and Enumerator in the BaseInteractable script 
         timerActive = true;
         yield return new WaitForSeconds(timer);
         timerActive = false;

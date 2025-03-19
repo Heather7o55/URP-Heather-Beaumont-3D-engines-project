@@ -6,7 +6,7 @@ using UnityEngine;
 public class Furnace : BaseInteractable
 {
     private Item internalItem;
-    //Interact is called every physics update, serving the same function for interactables as update does in other scripts
+    // Interact is called every physics update, serving the same function for interactables as update does in other scripts
     public void Start()
     {
         internalItem = empty;
@@ -23,7 +23,8 @@ public class Furnace : BaseInteractable
         }
     }
     public void Update()
-    {
+    {   
+        // We do this in update as this logic needs to run independently of when the player is interacting with the object 
         if(internalItem == empty || internalItem == sludge || !ValidatePlayerItem(internalItem)) return;
         if(timerActive) return;
         else 

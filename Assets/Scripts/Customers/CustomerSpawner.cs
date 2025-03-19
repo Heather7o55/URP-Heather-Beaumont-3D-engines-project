@@ -8,32 +8,26 @@ public class CustomerSpawner : MonoBehaviour
 {
     private bool timerActive = false;
     public GameObject customerGObj;
-    void Start()
-    {
-        SpawnCustomer();
-    }
     void Update()
     {
         if(timerActive) return;
-        else
-        {
-            SpawnCustomer();
-            StartCoroutine(StartTimer(RefreshTimer()));
-        }
+        else 
+            StartCoroutine(SpawnCustomer(GenerateTimer()));
     }
     public void SpawnCustomer()
     {
         Debug.Log("spawned customer");
         Instantiate(customerGObj, transform);
     }
-    private float RefreshTimer()
+    private float GenerateTimer()
     {
         return Random.Range(DifficultyController.difficulty.low ,DifficultyController.difficulty.high) * 0.5f;
     }
-    private IEnumerator StartTimer(float timer)
+    private IEnumerator SpawnCustomer(float timer)
     {
         timerActive = true;
         yield return new WaitForSeconds(timer);
+        SpawnCustomer();
         timerActive = false;
     }
 }
