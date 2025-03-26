@@ -8,17 +8,27 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]private GameObject pauseMenuUI;
     [SerializeField]private GameObject pauseMenuQuitUI;
+    [SerializeField]private GameObject gameOverUI;
     public static bool isPaused = false;
+    public static bool gameOver;
     public static GameObject prefabUI;
     public static Transform self;
     [SerializeField]private GameObject tmpUI;
     void Start()
     {
+        isPaused = false;
+        gameOver = false;
         prefabUI = tmpUI;
         self = transform;
     }
     void Update()
     {
+        if(gameOver)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            isPaused = true;
+            gameOverUI.SetActive(true);
+        }
         UpdateOrderUI();
         Time.timeScale = isPaused ? 0f : 1f;
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -26,6 +36,7 @@ public class UIManager : MonoBehaviour
             if(isPaused) ResumeGame();
             else PauseGame();
         }
+    
     }
     public void ResumeGame()
     {

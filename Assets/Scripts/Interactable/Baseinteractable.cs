@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 public abstract class BaseInteractable : MonoBehaviour
 {
-    public List<Item> validItems;
+    public List<Item> validItems = new List<Item>();
     public float interactableTimer;
     public bool timerActive;
     public static Item empty;

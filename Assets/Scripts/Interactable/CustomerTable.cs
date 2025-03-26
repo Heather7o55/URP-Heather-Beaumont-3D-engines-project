@@ -23,16 +23,34 @@ public class CustomerTable : BaseInteractable
     }
     private void CheckValidItem()
     {
+        int requestOverSoonest = 0;
+        float timeleft = 0f;
+        int item = -1;
+        List<int> items = new List<int>();
         for(int i = 0; i < CustomerManager.requests.Count; i++)
         {
             for(int j = 0; j < internalItems.Count; j++)
             {
                 if(CustomerManager.requests[i].item == internalItems[j])
-                {
-                    CustomerManager.requests.RemoveAt(i);
-                    internalItems.RemoveAt(j);
+                {   
+                    if(item == -1) item = j;
+                    if(item == j) items.Add(i);
                 }
             }
         }
+        for(int i = 0; i < items.Count; i++)
+        {
+            if(CustomerManager.requests[items[i]].timerActive >= timeleft)
+            {
+                timeleft = CustomerManager.requests[items[i]].timerActive;
+                requestOverSoonest = items[i];
+            } 
+        }
+        if(requestOverSoonest != 0)
+        {
+            CustomerManager.requests.RemoveAt(requestOverSoonest);
+            internalItems.RemoveAt(item);
+        }
+        
     }
 }

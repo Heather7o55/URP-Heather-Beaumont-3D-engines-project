@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: {fileID: 11400000, guid: 1508596632d827c44a12a522ad5487af, type: 2}
-  sludge: {fileID: 0}
+  sludge: {fileID: 11400000, guid: c74d660cc9431f845a5a0af3cd15cd2b, type: 2}
 --- !u!43 &792531560
 Mesh:
   m_ObjectHideFlags: 0
@@ -4787,7 +4787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resume
+  m_text: Reset
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4950,7 +4950,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1920009614}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: PauseMenuQuit
+        m_MethodName: QuitToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5384,6 +5384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2067005057}
   pauseMenuQuitUI: {fileID: 2084302014}
+  gameOverUI: {fileID: 2132558723}
   tmpUI: {fileID: 1500739941769365883, guid: 60be457bdacebc04389811b96d731d47, type: 3}
 --- !u!114 &1920009615
 MonoBehaviour:

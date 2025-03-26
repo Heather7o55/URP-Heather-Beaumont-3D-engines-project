@@ -13,14 +13,18 @@ public class CustomerManager : MonoBehaviour
     public struct Request
     {
         public float timer;
+        public float timerActive;
         public Item item;
         public int requestID;
     }
     public static List<Request> requests = new List<Request>();
     public static void CustomerRequest(Request request)
     {
-        /* unlike arrays .length counts like a human, so if there is nothing in the array it will return zero, 
-        this allows us to use it as a automatic plus 1 counter */
         requests.Add(request);
+    }
+    public static void ResetCustomerManager()
+    {
+        orderUIList.Clear();
+        requests.Clear();
     }
 }

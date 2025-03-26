@@ -34,6 +34,7 @@ public class Customer : MonoBehaviour
             if(!CustomerManager.requests.Any(Request => Request.requestID == ID)) break;
         }
         request.requestID = ID;
+        request.timerActive = 0f;
         return request;
     }
     private bool IfRequestFulfilled()

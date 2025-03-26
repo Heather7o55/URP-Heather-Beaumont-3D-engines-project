@@ -17,6 +17,7 @@ public class OrderUI : MonoBehaviour
     }
     void Update()
     {
+        request.timerActive = (request.timer * 0.5f) * Time.deltaTime;
         if(green.fillAmount != 1f)
             green.fillAmount += 1.0f / request.timer * Time.deltaTime;
         else if(red.fillAmount != 1f) 
@@ -27,6 +28,7 @@ public class OrderUI : MonoBehaviour
             {
                 if(CustomerManager.requests[i].requestID == request.requestID)
                 {
+                    UIManager.gameOver = true;
                     CustomerManager.requests.RemoveAt(i);
                 }
             }

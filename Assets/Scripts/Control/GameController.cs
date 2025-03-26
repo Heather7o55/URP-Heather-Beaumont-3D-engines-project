@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public Item sludge;
     void Awake()
     {
+        CustomerManager.ResetCustomerManager();
         BaseInteractable.empty = empty;
         BaseInteractable.sludge = sludge;
         DifficultyController.difficulty.high = 30;
