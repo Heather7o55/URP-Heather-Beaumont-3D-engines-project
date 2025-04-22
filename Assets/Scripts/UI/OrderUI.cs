@@ -9,15 +9,27 @@ public class OrderUI : MonoBehaviour
     // Start is called before the first frame update
     public Image green;
     public Image red;
-    public CustomerManager.Request request;
+    public int ID;
     public Image artwork;
+    private CustomerManager.Request request;
     void Start()
     {
+        while(true)
+        {
+            for(int i = 0; i < CustomerManager.requests.Count; i++)
+            {
+                if(CustomerManager.requests[i].requestID == ID)
+                {
+                    request = CustomerManager.requests[i];
+                    break;
+                }
+            }
+            break;
+        }
         artwork.sprite = request.item.artwork;  
     }
     void Update()
     {
-        request.timerActive = (request.timer * 0.5f) * Time.deltaTime;
         if(green.fillAmount != 1f)
             green.fillAmount += 1.0f / request.timer * Time.deltaTime;
         else if(red.fillAmount != 1f) 

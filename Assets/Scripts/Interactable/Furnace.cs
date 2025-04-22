@@ -13,24 +13,30 @@ public class Furnace : BaseInteractable
     }
     public override void Interact(Collider col)
     {
-        if(timerActive) return;
         if(Input.GetKey(KeyCode.E))
         { 
             if(PlayerHolding.currentlyHeldItem == internalItem) return;
             if(ValidatePlayerItem(PlayerHolding.currentlyHeldItem))
+            {
                 (PlayerHolding.currentlyHeldItem, internalItem) = (internalItem, PlayerHolding.currentlyHeldItem);
+                StartCoroutine(StartTimer(interactableTimer));
+            }
             else return;
         }
     }
     public void Update()
     {   
         // We do this in update as this logic needs to run independently of when the player is interacting with the object 
-        if(internalItem == empty || internalItem == sludge || !ValidatePlayerItem(internalItem)) return;
+        if(internalItem == empty || internalItem == sludge || !ValidatePlayerItem(internalItem))
+        {
+            timerActive = false;
+            return;
+        } 
         if(timerActive) return;
         else 
         {
             internalItem = internalItem.nextState;
-            StartCoroutine(StartTimer(interactableTimer));
+            
         }
     }
 

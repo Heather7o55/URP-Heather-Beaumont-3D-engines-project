@@ -64,10 +64,10 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
-    public static GameObject CreateOrderUI(CustomerManager.Request request)
+    public static GameObject CreateOrderUI(int ID)
     {
         GameObject UI = Instantiate(prefabUI, self);
-        UI.GetComponent<OrderUI>().request = request;
+        UI.GetComponent<OrderUI>().ID = ID;
         CustomerManager.orderUIList.Add(UI);
         Debug.Log("created UI");
         return UI;

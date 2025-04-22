@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ public class CustomerTable : BaseInteractable
     }
     private void CheckValidItem()
     {
-        int requestOverSoonest = 0;
+        int requestOverSoonest = -1;
         float timeleft = 0f;
         int item = -1;
         List<int> items = new List<int>();
@@ -46,7 +47,7 @@ public class CustomerTable : BaseInteractable
                 requestOverSoonest = items[i];
             } 
         }
-        if(requestOverSoonest != 0)
+        if(requestOverSoonest != -1)
         {
             CustomerManager.requests.RemoveAt(requestOverSoonest);
             internalItems.RemoveAt(item);

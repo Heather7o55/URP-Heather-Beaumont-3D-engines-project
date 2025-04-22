@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
@@ -18,13 +18,41 @@ public class CustomerManager : MonoBehaviour
         public int requestID;
     }
     public static List<Request> requests = new List<Request>();
-    public static void CustomerRequest(Request request)
-    {
-        requests.Add(request);
-    }
     public static void ResetCustomerManager()
     {
         orderUIList.Clear();
         requests.Clear();
     }
+    public static int CustomerRequest()
+    {
+        Request request;
+        int ID;
+        // I use range here to pick a random number within the valid items list, which makes sure that customers can only request an item the player can make
+        request.item = validItems[Random.Range(0, validItems.Count)];
+        request.timer = Random.Range(DifficultyController.difficulty.low, DifficultyController.difficulty.high);
+        while(true)
+        {
+            // this while loop makes sure that we don't get any duped IDs, i mean its unlikely anyway but for safety
+            ID = Random.Range(0, 1000);
+            if(!requests.Any(Request => Request.requestID == ID)) break;
+        }
+        request.requestID = ID;
+        request.timerActive = 0f;
+        requests.Add(request);
+        return ID;
+    }
+    public static void UpdatedRequestTimer(int ID)
+    {
+        for(int i = 0; i < requests.Count; i++)
+            {
+                if(requests[i].requestID == ID)
+                {
+                    Request request = requests[i];
+                    request.timerActive += request.timer * 0.5f * Time.deltaTime;
+                    requests[i] = request;
+                    break;
+                }
+            }
+    }
+
 }
