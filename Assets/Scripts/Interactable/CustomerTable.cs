@@ -41,9 +41,9 @@ public class CustomerTable : BaseInteractable
         }
         for(int i = 0; i < items.Count; i++)
         {
-            if(CustomerManager.requests[items[i]].timerActive >= timeleft)
+            if((CustomerManager.requests[items[i]].timerActive / CustomerManager.requests[items[i]].timer) >= timeleft)
             {
-                timeleft = CustomerManager.requests[items[i]].timerActive;
+                timeleft = CustomerManager.requests[items[i]].timerActive / CustomerManager.requests[items[i]].timer;
                 requestOverSoonest = items[i];
             } 
         }
