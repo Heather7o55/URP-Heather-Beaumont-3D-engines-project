@@ -48,7 +48,8 @@ public class CustomerManager : MonoBehaviour
                 if(requests[i].requestID == ID)
                 {
                     Request request = requests[i];
-                    request.timerActive += request.timer * 0.5f * Time.deltaTime;
+                    request.timerActive += 0.5f * Time.deltaTime;
+                    Debug.Log(request.timerActive * 2);
                     requests[i] = request;
                     break;
                 }

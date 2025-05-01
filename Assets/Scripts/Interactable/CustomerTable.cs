@@ -25,7 +25,7 @@ public class CustomerTable : BaseInteractable
     private void CheckValidItem()
     {
         int requestOverSoonest = -1;
-        float timeleft = 0f;
+        float timeLeft = 0f;
         int item = -1;
         List<int> items = new List<int>();
         for(int i = 0; i < CustomerManager.requests.Count; i++)
@@ -41,9 +41,9 @@ public class CustomerTable : BaseInteractable
         }
         for(int i = 0; i < items.Count; i++)
         {
-            if((CustomerManager.requests[items[i]].timerActive / CustomerManager.requests[items[i]].timer) >= timeleft)
+            if((CustomerManager.requests[items[i]].timerActive / CustomerManager.requests[items[i]].timer) >= timeLeft)
             {
-                timeleft = CustomerManager.requests[items[i]].timerActive / CustomerManager.requests[items[i]].timer;
+                timeLeft = CustomerManager.requests[items[i]].timerActive / CustomerManager.requests[items[i]].timer;
                 requestOverSoonest = items[i];
             } 
         }
