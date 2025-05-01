@@ -13,6 +13,6 @@ public class GameController : MonoBehaviour
         BaseInteractable.empty = empty;
         BaseInteractable.sludge = sludge;
         DifficultyController.difficulty.high = 30;
-        DifficultyController.difficulty.high = 20;
+        DifficultyController.difficulty.low = 20;
     }
 }
