@@ -21,7 +21,9 @@ public class Customer : MonoBehaviour
     {
         /* For those unaware, return returns the output of the given variable, 
         in this case since my return type is bool and the return type of that function call is also a bool i can just return the function, 
-        as it returns the output of the function */
+        as it returns the output of the function. 
+        however it's important to note that i have fliped the value of this return, so if the .any returns true, this function returns false, 
+        as if it can find a matching id the request is not fullfilled as the request is still in the list.*/
         return !CustomerManager.requests.Any(request => request.requestID == ID);
     }
     void Update()
